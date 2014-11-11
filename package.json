@@ -7,7 +7,9 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "coverage": "istanbul cover node_modules/.bin/_mocha -- --reporter spec",
+    "test": "mocha --reporter spec",
+    "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "concat-stream": "1.4.x",
+    "istanbul": "0.3.x",
     "mocha": "2.0.x",
     "pre-commit": "0.0.x"
   }
