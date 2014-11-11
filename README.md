@@ -1,5 +1,7 @@
 # condenseify
 
+[![Version npm](http://img.shields.io/npm/v/condenseify.svg?style=flat-square)](http://browsenpm.org/package/condenseify)[![Build Status](http://img.shields.io/travis/primus/condenseify/master.svg?style=flat-square)](https://travis-ci.org/primus/condenseify)[![Dependencies](https://img.shields.io/david/primus/condenseify.svg?style=flat-square)](https://david-dm.org/primus/condenseify)[![Coverage Status](http://img.shields.io/coveralls/primus/condenseify/master.svg?style=flat-square)](https://coveralls.io/r/primus/condenseify?branch=master)[![IRC channel](http://img.shields.io/badge/IRC-irc.freenode.net%23primus-00a8ff.svg?style=flat-square)](http://webchat.freenode.net/?channels=primus)
+
 This module for [Browserify](http://browserify.org/) will transform your js
 files condensing multiple blank (empty) lines into a single blank line. By
 default non empty lines containing only white spaces will be removed.
