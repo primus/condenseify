@@ -1,6 +1,6 @@
 {
   "name": "condenseify",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Browserify transform to remove unwanted blank lines from your code",
   "files": [
     "index.js"
