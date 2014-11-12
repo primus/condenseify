@@ -2,8 +2,7 @@
 
 var through = require('through2')
   , pumpify = require('pumpify')
-  , split = require('split')
-  , regex = /^[ \t]+$/;
+  , split = require('split');
 
 //
 // Expose the transform.
@@ -22,33 +21,36 @@ module.exports = condenseify;
 function condenseify(file, options) {
   if (/\.json$/.test(file)) return through();
 
-  var appendNewLine = true
+  var eol = new Buffer('\n')
+    , appendNewLine = true
+    , regex = /^[ \t]+$/
     , isBlank = false;
 
   options = options || {};
 
   function transform(line, encoding, next) {
     /* jshint validthis: true */
-    if (!line.length) {
+    var length = line.length;
+
+    if (!length) {
       isBlank = true;
       return next();
     }
 
-    line = line.toString();
     if (!options['keep-non-empty'] && regex.test(line)) return next();
 
     if (isBlank) {
       isBlank = false;
-      this.push('\n');
+      this.push(eol);
     }
     appendNewLine = false;
-    this.push(line +'\n');
+    this.push(Buffer.concat([ line, eol ], ++length));
     next();
   }
 
   function flush(done) {
     /* jshint validthis: true */
-    if (appendNewLine) this.push('\n');
+    if (appendNewLine) this.push(eol);
     done();
   }
 
