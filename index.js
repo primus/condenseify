@@ -2,7 +2,7 @@
 
 var through = require('through2')
   , pumpify = require('pumpify')
-  , split = require('split');
+  , split = require('split2');
 
 //
 // Expose the transform.
