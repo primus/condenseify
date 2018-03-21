@@ -21,22 +21,20 @@ module.exports = condenseify;
 function condenseify(file, options) {
   if (/\.json$/.test(file)) return through();
 
-  var eol = new Buffer('\n')
-    , appendNewLine = true
+  var appendNewLine = true
     , regex = /^[ \t]+$/
-    , isBlank = false;
+    , isBlank = false
+    , eol ='\n';
 
   options = options || {};
 
   function transform(line, encoding, next) {
-    /* jshint validthis: true */
-    var length = line.length;
-
-    if (!length) {
+    if (!line.length) {
       isBlank = true;
       return next();
     }
 
+    line = line.toString();
     if (!options['keep-non-empty'] && regex.test(line)) return next();
 
     if (isBlank) {
@@ -44,12 +42,11 @@ function condenseify(file, options) {
       this.push(eol);
     }
     appendNewLine = false;
-    this.push(Buffer.concat([ line, eol ], ++length));
+    this.push(line + eol);
     next();
   }
 
   function flush(done) {
-    /* jshint validthis: true */
     if (appendNewLine) this.push(eol);
     done();
   }
