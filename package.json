@@ -25,7 +25,7 @@
   "author": "Luigi Pinca",
   "license": "MIT",
   "dependencies": {
-    "pumpify": "~1.4.0",
+    "pumpify": "~1.5.0",
     "split2": "~2.2.0",
     "through2": "~2.0.1"
   },
