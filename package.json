@@ -25,14 +25,14 @@
   "author": "Luigi Pinca",
   "license": "MIT",
   "dependencies": {
-    "pumpify": "~1.5.0",
-    "split2": "~3.0.0",
-    "through2": "~3.0.0"
+    "pumpify": "~2.0.1",
+    "split2": "~3.2.2",
+    "through2": "~4.0.2"
   },
   "devDependencies": {
-    "concat-stream": "~1.6.0",
+    "concat-stream": "~2.0.0",
     "istanbul": "~0.4.5",
-    "mocha": "~5.2.0",
+    "mocha": "~8.2.1",
     "pre-commit": "~1.2.0"
   }
 }
