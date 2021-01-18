@@ -7,9 +7,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "coverage": "istanbul cover _mocha",
-    "test": "mocha",
-    "test-travis": "istanbul cover _mocha --report lcovonly"
+    "test": "c8 --reporter=html --reporter=text mocha"
   },
   "repository": {
     "type": "git",
@@ -30,8 +28,9 @@
     "through2": "~4.0.2"
   },
   "devDependencies": {
+    "c8": "~7.4.0",
     "concat-stream": "~2.0.0",
-    "istanbul": "~0.4.5",
+    "coveralls": "~3.1.0",
     "mocha": "~8.2.1",
     "pre-commit": "~1.2.0"
   }
